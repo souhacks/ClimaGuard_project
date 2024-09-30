@@ -19,4 +19,6 @@ Push to GitHub repository
 git config user.name "souhacks"
 git config user.email "souravverma795@gmail.com"
 git add .
+git commit -m "first commit"
+git push origin main
 ```
