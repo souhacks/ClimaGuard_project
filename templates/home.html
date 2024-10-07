@@ -1,0 +1,45 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Leaf Prediction</title>
+</head>
+<body>
+    <h1>Apple Leaf Disease Prediction</h1>
+    <form action="/predict" method="POST">
+        <label for="temperature">Temperature (°C):</label>
+        <input type="text" id="temperature" name="Temperature_(°C)" required><br><br>
+
+        <label for="humidity">Humidity (%):</label>
+        <input type="text" id="humidity" name="Humidity_(%)" required><br><br>
+
+        <label for="moisture">Moisture (%):</label>
+        <input type="text" id="moisture" name="Moisture_(%)" required><br><br>
+
+        <label for="rainfall">Rainfall Density (mm):</label>
+        <input type="text" id="rainfall" name="Rainfall_Density_(mm)" required><br><br>
+
+        <label for="wetness">Leaf Wetness (units):</label>
+        <input type="text" id="wetness" name="Leaf_Wetness_(units)" required><br><br>
+
+        <label for="month">Month:</label>
+        <input type="text" id="month" name="Month" required><br><br>
+
+        <label for="season">Season:</label>
+        <select id="season" name="Season">
+            <option value="fall">Fall</option>
+            <option value="spring">Spring</option>
+            <option value="summer">Summer</option>
+            <option value="winter">Winter</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
