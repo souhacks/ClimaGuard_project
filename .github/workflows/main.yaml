@@ -1,0 +1,25 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to Render
+        run: |
+          echo "RENDER_API_KEY=${{ rnd_Dcf7hWhKpilECFH8KPetmzFYJ8Ay }}" >> $GITHUB_ENV
+
+      - name: Install Render CLI
+        run: curl -fsSL https://cli.render.com/install.sh | bash
+
+      - name: Deploy to Render
+        run: |
+          render deploy \
+            --service-id ${{ https://api.render.com/deploy/srv-cs4m2r08fa8c73emkju0?key=PdDAsRqwi6s }} \
+            --branch main
