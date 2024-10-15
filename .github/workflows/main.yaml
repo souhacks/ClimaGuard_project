@@ -21,5 +21,5 @@ jobs:
       - name: Deploy to Render
         run: |
           render deploy \
-            --service-id ${{ https://api.render.com/deploy/srv-cs4m2r08fa8c73emkju0?key=PdDAsRqwi6s }} \
+            --service-id ${{ srv-cs4m2r08fa8c73emkju0 }} \
             --branch main
