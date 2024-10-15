@@ -11,15 +11,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Log in to Render
-        run: |
-          echo "RENDER_API_KEY=${{ rnd_Dcf7hWhKpilECFH8KPetmzFYJ8Ay }}" >> $GITHUB_ENV
+      # Log in to Render using API Key from GitHub Secrets
+      - name: Set up Render API Key
+        run: echo "RENDER_API_KEY=${{ rnd_Dcf7hWhKpilECFH8KPetmzFYJ8Ay }}" >> $GITHUB_ENV
 
+      # Install Render CLI
       - name: Install Render CLI
-        run: curl -fsSL https://cli.render.com/install.sh | bash
+        run: |
+          curl -fsSL https://cli.render.com/install.sh | bash
+          export PATH="$HOME/.render/bin:$PATH"  # Add Render CLI to PATH
 
+      # Deploy to Render
       - name: Deploy to Render
         run: |
           render deploy \
-            --service-id ${{ srv-cs4m2r08fa8c73emkju0 }} \
+            --service-id srv-cs4m2r08fa8c73emkju0 \
             --branch main
