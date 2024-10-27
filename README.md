@@ -22,3 +22,4 @@ git add .
 git commit -m "first commit"
 git push origin main
 ```
+The API link: "https://climaguard-project.onrender.com/predict"
